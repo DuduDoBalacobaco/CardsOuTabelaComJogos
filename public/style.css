@@ -10,15 +10,158 @@ body{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    color: white;
+    color: rgb(223, 221, 221);
 }
 .container{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    gap: 150px;
-    margin: 100px;
+    width: 100%;
+    max-width: 900px;
+    margin: 10px auto;
+    gap: 10px;
+}
+.config{
+    height: 200px;
+}
+.backend{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+#opcoes{
+    display: flex;
+    width: 750px;
+}
+.escolha{
+    font-size: 25px;
+    margin: 30px;
+}
+#cadastrar, #alterar, #excluir{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 249px;
+    border: 1px solid #fffdfd;
+    height: 50px;
+    cursor: pointer;
+    border-radius: 0 16px 0 0;
+    margin: 0 1px;
+    font-size: 25px;
+    transition: 0.5s;
+}
+#cadastrar{
+    margin: 0 1px 0 0;
+}
+#excluir{
+    margin: 0 0 0 1px;
+}
+.cadastro, .alteracao, .deletar, #confirmarExcluir{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 20px;
+    width: 750px;
+    height: 200px;
+    background: rgba(71, 70, 70, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255);
+    border-top: none;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+}
+#alterarCaracteristica, #idAlterar{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0 20px;
+    width: 750px;
+    height: 200px;
+    transition: 0.5s;
+}
+#alterarCaracteristica, .cadastro{
+    display: none;
+    flex-direction: column;
+}
+.input{
+    display: flex;
+    gap: 0 20px;
+    margin: 20px;
+}
+.alteracao{
+    display: none;
+    flex-direction: column;
+}
+#idAlterar, .deletar{
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+input{
+    width: 210px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    background: rgba(71, 70, 70, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: 0 25px;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
+    color: rgb(209, 209, 209);
+}
+input::placeholder{
+    color: rgb(90, 90, 90);
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:focus{
+    border: 1px solid #f0f0f0;
+}
+button{
+    width: 80px;
+    height: 50px;
+    border: none;
+    background-color: rgb(103, 103, 247);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.2s;
+    box-shadow: 2px 4px black;
+    cursor: pointer;
+}
+button:hover{
+    transform: scale(1.1);
+    box-shadow: 2px 4px #f0f0f0;
+}
+#danger{
+    width: 80px;
+    height: 50px;
+    border: none;
+    background-color: rgb(250, 37, 37);
+    color: #fff;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: 0.2s;
+    box-shadow: 2px 4px black;
+}
+#danger:hover{
+    transform: scale(1.1);
+    background-color: rgb(255, 0, 0);
+    box-shadow: 2px 4px #f0f0f0;
 }
 #card{
     display: flex;
@@ -26,7 +169,7 @@ body{
     align-items: center;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 100px;
+    gap: 50px;
 }
 .title{
     display: flex;
@@ -35,7 +178,7 @@ body{
     height: 50px;
     margin-bottom: 20px;    
     background-color: rgb(88, 87, 87);
-    font-size: 40px;
+    font-size: 30px;
 }
 .card{
     display: flex;
@@ -43,7 +186,7 @@ body{
     border: 1px solid black;
     gap: 10px;
     background-color: rgb(192, 192, 192);
-    width: 230px;
+    width: 210px;
     height: 200px;
     transition: 0.2s;
     color: black;
@@ -57,7 +200,7 @@ i{
     font-size: 40px;
 }
 .card:hover{
-    transform: scale(1.3);
+    transform: scale(1.05);
     box-shadow: 0px 8px 32px rgba(255, 255, 255);
 }
 .switch{
@@ -66,12 +209,10 @@ i{
     justify-content: center;
     background-color: transparent;
 }
-span{
-    font-size: 25px;
-    margin: 30px;
-}
 .button{
     background-color: #d2d2d2;
+    box-shadow: 0px 8px 32px rgba(0, 0, 0);
+    margin: 20px;
     width: 200px;
     height: 100px;
     border-radius: 200px;
@@ -89,23 +230,26 @@ span{
     margin: 5px;
     transition: 0.2s;
 }
-input:checked + .button{
+#switch:checked + .button{
     background-color: rgb(27, 27, 27);
+    box-shadow: 0px 8px 32px rgb(255, 255, 255);
 }
-input:checked + .button::before{
+#switch:checked + .button::before{
     transform: translateX(100px);
 }
-input{
+#switch{
     display: none;
 }
 table{
     border-collapse: collapse;
-    max-width: 900px;
+    width: 100%;
+    max-width: 750px;
     border: 1px solid rgb(0, 0, 0);
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.2);
 }
 th, td{
-    width: calc(900px / 4);
-    height: 80px;
+    width: calc(750px / 4);
+    height: 60px;
     text-align: center;
     padding: 8px;
     font-size: 1rem;
@@ -117,4 +261,18 @@ th, td{
 th{
     background: rgba(2, 2, 2, 0.3);
     color: #fff;
+}
+#red{
+    color: rgb(253, 30, 30);
+    translate: -5px;
+}
+#blue{
+    color: rgb(46, 46, 250);
+    translate: -5px;
+}
+#yellow{
+    color: rgb(250, 250, 88);
+}
+.frase{
+    display: flex;
 }

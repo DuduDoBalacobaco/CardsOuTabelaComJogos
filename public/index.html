@@ -3,25 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Tabela e Cards de jogos</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <main>
 
-    <div class="container">
+        <section class="backend">
+            <div id="opcoes">
+                <span id="cadastrar" onclick="alterarDisplayCadastro()">Cadastrar jogo</span>
+                <span id="alterar" onclick="alterarDisplayAlterar()">Alterar jogo</span>
+                <span id="excluir" onclick="alterarDisplayDeletar()">Deletar jogo</span>
+            </div>
 
-        <div class="switch">
-            <span>Tabela</span>
-            <input type="checkbox" id="switch" onchange="mudarLayout()">
-            <label for="switch" class="button"></label>
-            <span>Card</span>
-        </div>
+            <div class="config">
 
-        <div id="mostrar">
-            
-        </div>
-    </div>
+                <div class="cadastro">
+                    <p>Digite no input para <span id="yellow">cadastrar</span></p>
+                    <div class="input">
+                        <input type="text" placeholder="Digite o nome do jogo" id="cadastrarNomeJogo">
+                        <input type="text" placeholder="Digite o genero do jogo" id="cadastrarGeneroJogo">
+                        <input type="number" placeholder="Digite o ano do jogo" id="cadastrarAnoJogo">
+                    </div>
+                        <button type="button" onclick="capturarTexto()">Cadastrar</button>
+                </div>
+
+                <div class="alteracao">
+                    <div id="idAlterar">
+                        <div class="frase">
+                            <p id="fraseAlterar">Digite o id do jogo que quer </p> <span id="blue">alterar</span>
+                        </div>
+                        <input type="text" placeholder="Digite aqui o id" id="alterarJogo">
+                        <button type="button" onclick="verificarExistenciaDeID('alterarJogo', 'fraseAlterar', 'blue')">Confirmar</button>
+                    </div>
+
+                    <div id="alterarCaracteristica">
+                        <p>Digite o que quer <span id="blue">alterar</span></p>
+                        <div class="input">
+                            <input type="text" placeholder="Digite o nome do jogo" id="alterarNomeJogo">
+                            <input type="text" placeholder="Digite o genero do jogo" id="alterarGeneroJogo">
+                            <input type="number" placeholder="Digite o ano do jogo" id="alterarAnoJogo">
+                        </div>
+                        <button type="button" onclick="capturarId()">Alterar</button>
+                    </div>
+                </div>
+
+                <div class="deletar">
+                    <div class="frase">
+                        <p id="fraseDeletar">Digite o id do jogo que quer</p><span id="red">deletar</span>
+                    </div>
+                    <input type="number" placeholder="Digite aqui o id" id="deletarJogo">
+                    <button type="button" onclick="verificarExistenciaDeID('deletarJogo', 'fraseDeletar', 'red')">Deletar</button>
+                </div>
+
+                <div id="confirmarExcluir">
+                    <p>Você realmente quer <span id="red">deletar</span> esse jogo ?</p>
+                    <button type="button" onclick="confirmarExclusaoJogo()" id="danger">Confirmar</button>
+                    <button type="button" onclick="retornarDisplayExcluir()">Retornar</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="switch">
+                <span class="escolha">Tabela</span>
+                <input type="checkbox" id="switch" onchange="mudarLayout()">
+                <label for="switch" class="button"></label>
+                <span class="escolha">Card</span>
+            </div>
+
+            <div id="mostrar">
+                
+            </div>
+        </section>
+
+    </main>
 
     <script src="script.js"></script>
 </body>
