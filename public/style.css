@@ -55,9 +55,17 @@ body{
 }
 #cadastrar{
     margin: 0 1px 0 0;
+    transform-origin: bottom;
+}
+#cadastrar:hover, #alterar:hover, #excluir:hover{
+    transform: scaleY(1.1);
+}
+#alterar{
+    transform-origin: bottom;
 }
 #excluir{
     margin: 0 0 0 1px;
+    transform-origin: bottom;
 }
 .cadastro, .alteracao, .deletar, #confirmarExcluir{
     display: none;
@@ -119,17 +127,21 @@ input{
     padding: 0 25px;
     box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
     color: rgb(209, 209, 209);
+    transition: 0.5s;
 }
 input::placeholder{
     color: rgb(90, 90, 90);
 }
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 input:focus{
     border: 1px solid #f0f0f0;
+}
+input:focus::placeholder{
+    color: #f0f0f0;
 }
 button{
     width: 80px;
